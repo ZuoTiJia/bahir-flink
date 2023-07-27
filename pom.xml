@@ -95,6 +95,7 @@
     <modules>
         <module>flink-connector-activemq</module>
         <module>flink-connector-akka</module>
+        <module>flink-connector-cnosdb</module>
         <module>flink-connector-flume</module>
         <module>flink-connector-influxdb</module>
         <module>flink-connector-influxdb2</module>
@@ -368,7 +369,7 @@
                             <jvmArg>-Xms1024m</jvmArg>
                             <jvmArg>-Xmx1024m</jvmArg>
                             <jvmArg>-XX:PermSize=${PermGen}</jvmArg>
-                            <jvmArg>-XX:MaxPermSize=${MaxPermGen}</jvmArg>
+                            <jvmArg>-XX:MaxMetaspaceSize=${MaxPermGen}</jvmArg>
                             <jvmArg>-XX:ReservedCodeCacheSize=${CodeCacheSize}</jvmArg>
                         </jvmArgs>
                         <javacArgs>
@@ -640,7 +641,7 @@
                     <!-- Note config is repeated in scalatest config -->
                     <configuration>
                         <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
-                        <argLine>-Xmx3g -Xss4096k -XX:MaxPermSize=${MaxPermGen} -XX:ReservedCodeCacheSize=512m</argLine>
+                        <argLine>-Xmx3g -Xss4096k -XX:MaxMetaspaceSize=${MaxPermGen} -XX:ReservedCodeCacheSize=512m</argLine>
                         <systemProperties>
                             <log4j.configuration>file:src/test/resources/log4j.properties</log4j.configuration>
                         </systemProperties>
@@ -778,7 +779,7 @@
                         <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
                         <junitxml>.</junitxml>
                         <filereports>ScalaTestsReport.txt</filereports>
-                        <argLine>-ea -Xmx3g -XX:MaxPermSize=${MaxPermGen} -XX:ReservedCodeCacheSize=${CodeCacheSize}</argLine>
+                        <argLine>-ea -Xmx3g -XX:MaxMetaspaceSize=${MaxPermGen} -XX:ReservedCodeCacheSize=${CodeCacheSize}</argLine>
                         <stderr />
                         <environmentVariables>
                             <JAVA_HOME>${test.java.home}</JAVA_HOME>

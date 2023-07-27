@@ -35,6 +35,7 @@ jobs:
        connector: [
          'flink-connector-activemq',
          'flink-connector-akka',
+         'flink-connector-cnosdb',
          'flink-connector-flume',
          'flink-connector-influxdb',
          'flink-connector-influxdb2',
